@@ -1,7 +1,7 @@
 {
-  "name": "day-1",
+  "name": "js-async-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"A playground for practicing async JavaScript with API calls and retry logic\"",
   "license": "ISC",
   "author": "",
   "type": "module",
@@ -10,6 +10,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "node-fetch": "^3.3.2"
   }
 }
