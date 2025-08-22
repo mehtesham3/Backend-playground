@@ -1,16 +1,17 @@
 {
-  "name": "backend_play",
+  "name": "day2",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
   "author": "",
-  "type": "module",
-  "main": "index.js",
+  "type": "commonjs",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "os": "^0.1.2"
+    "http": "^0.0.1-security",
+    "os": "^0.1.2",
+    "url": "^0.11.4"
   }
 }

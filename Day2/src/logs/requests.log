@@ -1,0 +1,6 @@
+{"timestamp":"2025-08-22T18:23:37.355Z","method":"GET","url":"/","status":200,"ip":"::1","userAgent":"curl/8.14.1","responseTime":"16.11ms"}
+{"timestamp":"2025-08-22T18:23:47.501Z","method":"GET","url":"/api/status","status":200,"ip":"::1","userAgent":"curl/8.14.1","responseTime":"8.54ms"}
+{"timestamp":"2025-08-22T18:23:55.498Z","method":"GET","url":"/api/logs","status":200,"ip":"::1","userAgent":"curl/8.14.1","responseTime":"5.48ms"}
+{"timestamp":"2025-08-22T18:24:14.231Z","method":"GET","url":"/api/system","status":200,"ip":"::1","userAgent":"curl/8.14.1","responseTime":"20.40ms"}
+{"timestamp":"2025-08-22T18:24:28.925Z","method":"GET","url":"/api/test","status":404,"ip":"::1","userAgent":"curl/8.14.1","responseTime":"2.80ms"}
+{"timestamp":"2025-08-22T18:24:37.077Z","method":"GET","url":"/another/route","status":404,"ip":"::1","userAgent":"curl/8.14.1","responseTime":"1.31ms"}
