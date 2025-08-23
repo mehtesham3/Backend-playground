@@ -1,7 +1,7 @@
 {
   "name": "backend_play",
   "version": "1.0.0",
-  "description": "",
+  "description": "<!-- README.md -->",
   "license": "ISC",
   "author": "",
   "type": "module",
@@ -12,5 +12,15 @@
   "dependencies": {
     "fs": "^0.0.1-security",
     "os": "^0.1.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mehtesham3/Backend-playground.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/mehtesham3/Backend-playground/issues"
+  },
+  "homepage": "https://github.com/mehtesham3/Backend-playground#readme"
 }
