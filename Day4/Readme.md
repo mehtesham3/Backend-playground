@@ -4,7 +4,7 @@
 
 - REST principles
 - CRUD operations
-- Postman / Thunder Client for API testing
+- Thunder Client for API testing
 
 ---
 
@@ -36,7 +36,6 @@
 ```json
 {
   "title": "Learn REST APIs",
-  "description": "Study REST principles and CRUD operations",
   "completed": false
 }
 ```
