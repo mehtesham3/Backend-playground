@@ -31,6 +31,17 @@ app.get("/users/:id", async (req, res) => {
   res.json(findUserById);
 })
 
+app.patch("/users/:id", async (req, res) => {
+  const updateUserById = await user.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  res.json({ updateDetails: updateUserById });
+})
+
+app.delete("/users/:id", async (req, res) => {
+  await user.findByIdAndDelete(req.params.id);
+  res.send("User data deleted");
+})
+
+
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000/");
 })
