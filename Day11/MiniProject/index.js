@@ -9,6 +9,8 @@ import passport from "./passportconfig.js";
 // dotenv.config();
 
 const app = express();
+const port = process.env.PORT;
+
 
 mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
@@ -16,11 +18,9 @@ mongoose.connect(process.env.MONGO_URI, {
   serverSelectionTimeoutMS: 10000
 }).then(() => {
   console.log("MongoDB connected Successfully")
-  app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}/`);
-  })
 })
   .catch((err) => console.error(err));
+
 
 app.use(express.json());
 
@@ -31,6 +31,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get("/", (req, res) => res.send("Blog API home 🚀🚀"));
+
+app.get("/health", async (req, res) => {
+  const dbStatus = mongoose.connection.readyState === 1 ? "Connected" : "Disconnected";
+  res.json({
+    status: "OK",
+    uptime: process.uptime() + "s",
+    timestamp: new Date(),
+    database: dbStatus,
+  })
+})
 
 //googelAuth
 app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
@@ -43,8 +53,11 @@ app.get("/auth/google/callback",
 );
 
 app.get("/profile", (req, res) => {
+  console.log(req.user);
   if (!req.user) return res.status(401).json({ error: "Not logged in" });
   res.json({ message: "Your profile", user: req.user });
 });
 
-const port = process.env.PORT;
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}/`);
+})

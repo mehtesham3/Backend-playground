@@ -1,7 +1,8 @@
 import "dotenv/config";
 import passport from 'passport'
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20'
-import user from '../../Day7/Miniproject/Schema.js'
+import user from "./Schema.js";
+
 // import dotenv from "dotenv"
 // dotenv.config();
 
@@ -10,20 +11,20 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: "/auth/google/callback"
 }, async (accessToken, refreshToken, profile, done) => {
-  try {
-    let User = await user.findOne({ googleId: profile.id });
-    if (!User) {
-      User = new user({
-        username: profile.displayName,
-        email: profile.emails[0].value,
-        googleId: profile.id,
-      });
-      await User.save();
-    }
-    return done(null, User);
-  } catch (error) {
-    return done(error, null);
+  // try {
+  let User = await user.findOne({ googleId: profile.id });
+  if (!User) {
+    User = new user({
+      username: profile.displayName,
+      email: profile.emails[0].value,
+      googleId: profile.id,
+    });
+    await User.save();
   }
+  return done(null, User);
+  // } catch (error) {
+  //   return done(error, null);
+  // }
 }));
 
 passport.serializeUser((user, done) => {

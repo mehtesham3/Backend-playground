@@ -1,9 +1,9 @@
-import mongoose, { Types } from "mongoose";
+import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
   username: { type: String },
-  email: { type: String, required: true, unique: true },
+  email: { type: String, unique: true },
   password: { type: String },
   googleId: { type: String },  //for googleAuth
 })
