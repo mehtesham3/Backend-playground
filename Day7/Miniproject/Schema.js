@@ -2,8 +2,10 @@ import mongoose, { Types } from "mongoose";
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  email: { type: String, required: true },
-  password: { type: String, required: true }
+  username: { type: String },
+  email: { type: String, required: true, unique: true },
+  password: { type: String },
+  googleId: { type: String },  //for googleAuth
 })
 
 const user = mongoose.model("UserAuth", userSchema);
