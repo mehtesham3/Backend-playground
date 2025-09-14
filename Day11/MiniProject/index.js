@@ -5,6 +5,7 @@ import session from 'express-session'
 import mongoose from 'mongoose'
 // import dotenv from "dotenv";
 import passport from "./passportconfig.js";
+import jwt from "jsonwebtoken"
 
 // dotenv.config();
 
@@ -47,8 +48,13 @@ app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "em
 
 app.get("/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
-  (req, res) => {
-    res.json({ message: `Welcome ${req.user.username}`, user: req.user });
+  async (req, res) => {
+    const payload = {
+      id: req.user._id,
+      email: req.user.email
+    }
+    const token = jwt.sign(payload, "MySecret", { expiresIn: "1h" });
+    res.json({ message: `Welcome ${req.user.username} from googleAuth`, token });
   }
 );
 
