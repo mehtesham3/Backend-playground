@@ -1,0 +1,22 @@
+{
+  "name": "miniproject",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --runInBand"
+  },
+  "devDependencies": {
+    "cross-env": "^10.0.0",
+    "jest": "^30.1.3",
+    "joi": "^18.0.1",
+    "supertest": "^7.1.4"
+  },
+  "dependencies": {
+    "mongoose": "^8.18.1"
+  }
+}

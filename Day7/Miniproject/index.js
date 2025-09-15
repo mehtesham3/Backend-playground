@@ -37,6 +37,7 @@ app.use((err, req, res, next) => {
 //   });
 // });
 
+export default app;
 
 app.listen(process.env.PORT || "8080", () => {
   console.log(`Server is running on port http://localhost:${process.env.PORT || "8080"}/`);

@@ -1,15 +1,17 @@
 import express from "express"
 import dotenv from "dotenv"
 import { blog } from "../Schema.js";
+import { validate } from '../../../Day12/MiniProject/Validation.js'
+import { blogSchema } from '../../../Day12/MiniProject/blogSchema.js'
 import authMiddelware from "../Middelware/auth.js";
 dotenv.config({ path: '../.env' });
 
 const blogRoute = express.Router();
 
-blogRoute.post("/", authMiddelware, async (req, res) => {   // /blog with post request to create a blog
+blogRoute.post("/", authMiddelware, validate(blogSchema), async (req, res) => {   // /blog with post request to create a blog
   try {
     const { title, content, author } = req.body;
-    if (!title || !content || !author) return res.status(400).json({ success: false, message: "title , content , author is required" });
+    // if (!title || !content || !author) return res.status(400).json({ success: false, message: "title , content , author is required" });
 
     const userId = req.user.id;
     const createBlog = await blog.create({
@@ -26,7 +28,7 @@ blogRoute.post("/", authMiddelware, async (req, res) => {   // /blog with post r
     });
   } catch (error) {
     console.log("Error occured in Blog due to : ", error.message);
-    res.status(403).json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 })
 
