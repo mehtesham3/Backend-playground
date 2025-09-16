@@ -18,17 +18,27 @@ It supports **user authentication, product management, categories, brands, and v
 
 ## 📂 Project Structure
 
+````bash
 .
-├── db.js # Knex configuration
-├── index.js # App entry point
-├── Routes/
-│ ├── User.js # Auth & user routes
-│ ├── Product.js # Product routes
-├── Middleware/
-│ ├── authMiddelware.js # Auth middlewares
-│ ├── schemaValidation.js # Joi schemas
-├── config/
-│ └── passport.js # Passport Google OAuth setup
+├── db.js                  # Knex configuration (Postgres connection)
+├── index.js               # App entry point
+│
+├── Routes/                # Route handlers
+│   ├── User.js            # Auth & user routes
+│   └── Product.js         # Product routes
+│
+├── Schema/                # Route handlers
+│   ├── productValidation.js            # Auth & user routes
+│   └── userValidation.js         # Product routes
+│
+├── Middleware/            # Middlewares
+│   ├── authMiddleware.js  # JWT / role-based authentication middleware
+│   └── schemaValidation.js # Joi validation schemas
+│
+├── GoogleLogin/                # Configurations
+│   └── passport.js        # Passport Google OAuth setup
+│
+├── package-lock.json
 ├── package.json
 └── README.md
 
@@ -116,4 +126,4 @@ It supports **user authentication, product management, categories, brands, and v
   "category_name": "Smartphones",
   "brand_name": "Apple"
 }
-```
+````
