@@ -12,6 +12,7 @@ import mongoose from "mongoose";
 import userRoute from "./Routes/User.js";
 import dotenv from "dotenv";
 import blogRoute from "./Routes/Blog.js";
+import { errorLogger, requestLogger } from "../../Day17/MinorProject/middelware/loggerMiddelware.js";
 dotenv.config({ path: './.env' });
 
 mongoose.connect("mongodb://localhost:27017/Blog")
@@ -23,6 +24,7 @@ app.use(express.json());
 
 app.use("/", userRoute);
 app.use("/blog", blogRoute);
+app.use(requestLogger);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -36,6 +38,7 @@ app.use((err, req, res, next) => {
 //     message: `Route not found:`
 //   });
 // });
+app.use(errorLogger);
 
 export default app;
 
