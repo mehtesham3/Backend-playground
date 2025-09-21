@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  # Your Node.js API Service
+  api:
+    build: . # Builds the image from your Dockerfile
+    container_name: blog-api
+    ports:
+      - "8080:8080" # Map host:container port
+    environment:
+      - NODE_ENV=development
+      # CRITICAL: Connect to the service name 'mongo'
+      - MONGODB_URI=mongodb://mongo:27017/Blog
+    volumes:
+      - ./logs:/app/logs # Persist logs
+      - ./:/app:ro # Optional: Mount your code for live development (if using nodemon)
+      - /app/node_modules # Protect container's node_modules
+    depends_on:
+      - mongo # Start MongoDB first
+    restart: unless-stopped
+
+  # MongoDB Service
+  mongo:
+    image: mongo:6.0 # Use the official MongoDB image
+    container_name: blog-mongo
+    # environment:
+    # Optional: Set default authentication (change the password!)
+    #   - MONGO_INITDB_ROOT_USERNAME=admin
+    #   - MONGO_INITDB_ROOT_PASSWORD=secret
+    volumes:
+      # Persist database data to a named volume, so it survives container restarts
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017" # Optional: Expose to host machine to connect with Compass
+
+# Define volumes to persist data
+volumes:
+  mongo_data: # This volume will be managed by Docker
