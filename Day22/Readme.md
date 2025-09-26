@@ -11,6 +11,7 @@ An optional **API Gateway** can be added later to combine both services under a 
 
 ## 📂 Project Structure
 
+````bash
 blog-microservices/
 │── userServices/
 │ ├── index.js
@@ -77,4 +78,4 @@ blog-microservices/
    ```bash
    git clone https://github.com/mehtsham3/blog-microservices.git
    cd blog-microservices
-   ```
+````
