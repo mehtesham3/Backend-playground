@@ -18,7 +18,7 @@ blog-microservices/
 │ ├── models/
 │ │ └── userSchema.js
 │ ├── routes/
-│ │ └── userRoutes.js # optional separation
+│ │ └── userRoutes.js
 │ ├── package-lock.json
 │ └── package.json
 │
@@ -27,7 +27,7 @@ blog-microservices/
 │ ├── models/
 │ │ └── blogSchema.js
 │ ├── routes/
-│ │ └── blogRoutes.js # optional separation
+│ │ └── blogRoutes.js
 │ ├── package-lock.json
 │ └── package.json
 │
