@@ -1,0 +1,22 @@
+openapi: 3.0.0
+info:
+  title: ECommerce API Test
+  version: 1.0.0
+  description: Test Swagger setup
+
+servers:
+  - url: http://localhost:3000
+    description: Test server
+
+paths:
+  /:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Server is running
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "ECommerce server is running well"
