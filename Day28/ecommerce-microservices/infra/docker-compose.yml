@@ -27,6 +27,7 @@ services:
       - POSTGRES_DB=ecommerce_db
     depends_on:
       - postgres
+    # command: npx knex migrate:latest --knexfile knexfile.js && npm run start
 
 volumes:
   pgdata:
