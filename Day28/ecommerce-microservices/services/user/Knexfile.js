@@ -20,5 +20,5 @@ export default {
     seeds: {
       directory: './seeds',
     },
-  },
-};
+  }
+}

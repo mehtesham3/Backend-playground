@@ -13,8 +13,10 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 
+COPY Knexfile.js ./Knexfile.js
+
 # Expose the app port
 EXPOSE 3000
 
-# Default command
-CMD ["npm", "run", "start"]
+# Run migrations before starting
+CMD ["sh", "-c", "npx knex migrate:latest --knexfile Knexfile.js && npm run start"]
